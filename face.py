@@ -10,17 +10,24 @@ face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 # Open the webcam
-video_capture = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0)
 
-video_capture.set(3, 640)
-video_capture.set(4, 480)
+cam.set(3, 640)
+cam.set(4, 480)
 
-minW = 0.1*video_capture.get(3)
-minH = 0.1*video_capture.get(4)
+minW = 0.1*cam.get(3)
+minH = 0.1*cam.get(4)
+
+label_to_name = {
+    0: "",
+    1: "kiran",
+    2: "prathu",
+    # Add more students here as needed
+}
 
 while True:
     # Capture frame-by-frame
-    ret, frame = video_capture.read()
+    ret, frame = cam.read()
 
     # Convert the frame to grayscale for face detection
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -35,14 +42,19 @@ while True:
 
         # Recognize the face using the trained recognizer
         label, confidence = recognizer.predict(face_roi)
-        print("Label:", label, "Confidence:", confidence)
+
+        student_name = label_to_name.get(label, "Unknown")
+
+        print("Student name:", student_name, "Confidence:", confidence)
 
         # Draw a rectangle around the detected face
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
+        # names = ['kiran']
+
         # Display the label and confidence
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame, f'kiran: {label}',
+        cv2.putText(frame, f'Name: {student_name}',
                     (x, y-10), font, 0.9, (0, 255, 0), 2)
 
         # cv2.putText(frame, str(label), (x+5, y-5), font, 1, (255, 255, 255), 2)
@@ -57,5 +69,5 @@ while True:
         break
 
 # Release the webcam and close all windows
-video_capture.release()
+cam.release()
 cv2.destroyAllWindows()
