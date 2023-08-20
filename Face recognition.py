@@ -8,13 +8,13 @@ faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + cascadePath)
 font = cv2.FONT_HERSHEY_SIMPLEX  # denotes the font type
 
 
-id = 2
+id = 5
 
 
-names = [' ', 'kiran']
+names = [' ', 'kiran', 'prathu', 'chandrasekharappa', 'Rekha']
 
 
-cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cam = cv2.VideoCapture(0)
 cam.set(3, 640)
 cam.set(4, 480)
 

@@ -18,12 +18,9 @@ cam.set(4, 480)
 minW = 0.1*cam.get(3)
 minH = 0.1*cam.get(4)
 
-label_to_name = {
-    0: "",
-    1: "kiran",
-    2: "prathu",
-    # Add more students here as needed
-}
+# id = 1
+
+names = ['', 'kiran', 'prathu']
 
 while True:
     # Capture frame-by-frame
@@ -43,7 +40,7 @@ while True:
         # Recognize the face using the trained recognizer
         label, confidence = recognizer.predict(face_roi)
 
-        student_name = label_to_name.get(label, "Unknown")
+        student_name = names.get(label, "Unknown")
 
         print("Student name:", student_name, "Confidence:", confidence)
 
@@ -57,7 +54,7 @@ while True:
         cv2.putText(frame, f'Name: {student_name}',
                     (x, y-10), font, 0.9, (0, 255, 0), 2)
 
-        # cv2.putText(frame, str(label), (x+5, y-5), font, 1, (255, 255, 255), 2)
+        # cv2.putText(frame, str(id), (x+5, y-5), font, 1, (255, 255, 255), 2)
         cv2.putText(frame, str(confidence), (x+5, y+h-5),
                     font, 1, (255, 255, 0), 1)
 

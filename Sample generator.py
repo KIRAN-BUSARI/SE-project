@@ -32,7 +32,7 @@ while True:
     if k == 27:
         break
     elif count >= 10:
-        print("\nDone! Time to Exit")
+        print("Done! Time to Exit")
         break
 
 print("Samples Taken Now closing the program....")
