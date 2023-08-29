@@ -11,7 +11,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX  # denotes the font type
 id = 5
 
 
-names = [' ', 'kiran', 'prathu', 'chandrasekharappa', 'Rekha']
+names = ['','Abdul', 'B kiran', 'pavan','kiran',]
 
 
 cam = cv2.VideoCapture(0)
@@ -39,13 +39,13 @@ while True:
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
         id, accuracy = recognizer.predict(gray[y:y+h, x:x+w])
-        if (accuracy < 100):
+        if (accuracy <= 100):
             id = names[id]
-            accuracy = "  {0}%".format(round(100 - accuracy))
+            accuracy = "{0}%".format(round(100 - accuracy))
 
         else:
             id = "Unknown"
-            accuracy = "  {0}%".format(round(100 - accuracy))
+            accuracy = "{0}%".format(round(100 - accuracy))
 
         cv2.putText(img, str(id), (x+5, y-5), font, 1, (255, 255, 255), 2)
         cv2.putText(img, str(accuracy), (x+5, y+h-5),
