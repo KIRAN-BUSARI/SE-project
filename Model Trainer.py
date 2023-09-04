@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import os
-
+import time
 path = 'samples'
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -34,4 +34,5 @@ print("Training Faces , It will take few seconds. Wait...")
 faces, ids = Images_And_Labels(path)
 recognizer.train(faces, np.array(ids))
 recognizer.write('trainer/trainer.yml')
+time.sleep(5    )
 print("Model trained, Now we can recognize your face")

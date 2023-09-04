@@ -1,5 +1,5 @@
 import cv2
-
+import time
 cam = cv2.VideoCapture(0)
 cam.set(3, 640)
 cam.set(4, 840)
@@ -10,6 +10,8 @@ face_id = input("Enter a Numeric USER ID here :   ")
 
 print("Taking Samples please Look at the Camera......!")
 count = 0
+
+time.sleep(5)
 
 while True:
 

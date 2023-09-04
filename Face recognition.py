@@ -7,12 +7,9 @@ faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + cascadePath)
 
 font = cv2.FONT_HERSHEY_SIMPLEX  # denotes the font type
 
-
 id = 5
 
-
-names = ['','Abdul', 'B kiran', 'pavan','kiran',]
-
+names = [' ', 'kiran', 'vaishnavi']
 
 cam = cv2.VideoCapture(0)
 cam.set(3, 640)
@@ -57,7 +54,6 @@ while True:
     if k == 27:
         break
 
-
-print("Thanks for using this program, Have a great DAY....")
 cam.release()
 cv2.destroyAllWindows()
+print("Thanks for using this program, Have a great DAY....")
