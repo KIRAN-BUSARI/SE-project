@@ -1,6 +1,7 @@
-import cv2
+import cv2  # pip install opencv-python
 import numpy as np
-from PIL import Image
+from PIL import Image  # pip install pillow
+# pip install opencv-contrib-python
 import os
 import time
 path = 'samples'
@@ -34,5 +35,5 @@ print("Training Faces , It will take few seconds. Wait...")
 faces, ids = Images_And_Labels(path)
 recognizer.train(faces, np.array(ids))
 recognizer.write('trainer/trainer.yml')
-time.sleep(5    )
+time.sleep(3)
 print("Model trained, Now we can recognize your face")

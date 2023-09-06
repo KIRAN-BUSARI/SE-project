@@ -9,7 +9,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX  # denotes the font type
 
 id = 5
 
-names = [' ', 'kiran', 'vaishnavi']
+names = [' ', 'Kiran', 'Pavan', 'B Kiran', 'Abdul']
 
 cam = cv2.VideoCapture(0)
 cam.set(3, 640)
@@ -53,6 +53,7 @@ while True:
     k = cv2.waitKey(10) & 0xff
     if k == 27:
         break
+
 
 cam.release()
 cv2.destroyAllWindows()

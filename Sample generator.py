@@ -11,7 +11,7 @@ face_id = input("Enter a Numeric USER ID here :   ")
 print("Taking Samples please Look at the Camera......!")
 count = 0
 
-time.sleep(5)
+time.sleep(3)
 
 while True:
 
@@ -37,6 +37,7 @@ while True:
         print("Done! Time to Exit")
         break
 
+time.sleep(2)
 print("Samples Taken Now closing the program....")
 cam.release()
 cv2.destroyAllWindows()
